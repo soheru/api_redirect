@@ -1,6 +1,5 @@
-from flask import Flask, render_template_string, redirect, url_for, jsonify
+from flask import Flask, render_template_string, jsonify, request
 import urllib.parse
-import time
 
 app = Flask(__name__)
 
@@ -27,7 +26,7 @@ def encode():
 def show_page(encoded_url):
     decoded_url = decode_url(encoded_url)
     
-    # HTML content as a string
+    # HTML content with your provided image link
     html_content = f"""
     <!DOCTYPE html>
     <html lang="en">
@@ -35,10 +34,27 @@ def show_page(encoded_url):
         <meta charset="UTF-8">
         <meta http-equiv="refresh" content="5;URL={decoded_url}">
         <title>Redirecting in 5 seconds</title>
+        <style>
+            body {{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+            }}
+            h1 {{
+                text-align: center;
+            }}
+            img {{
+                max-width: 100%;
+                height: auto;
+            }}
+        </style>
     </head>
     <body>
         <h1>Click on 1st Result</h1>
-        <img src="YOUR_IMAGE_URL_HERE" alt="Image">
+        <img src="https://telegra.ph/file/c702f1ae3d0e349a7c423.jpg" alt="Image">
         <p>Redirecting in 5 seconds...</p>
         <p>If you are not redirected, <a href="{decoded_url}">click here</a>.</p>
     </body>
@@ -48,5 +64,5 @@ def show_page(encoded_url):
     return render_template_string(html_content)
 
 if __name__ == '__main__':
-    app.run(debug=False)
-  
+    app.run(debug=True)
+    
