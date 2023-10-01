@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5;URL={{ decoded_url }}">
+    <title>Redirecting in 5 seconds</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            max-height: 80vh; /* Set maximum height based on viewport height */
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click on 1st Result</h1>
+    <img src="https://graph.org/file/c702f1ae3d0e349a7c423.jpg" alt="Image">
+    <p>Redirecting in 5 seconds...</p>
+    <p>If you are not redirected, <a href="{{ decoded_url }}">click here</a>.</p>
+</body>
+</html>
