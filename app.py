@@ -18,7 +18,7 @@ def decode_url(encoded_url):
 def encode():
     url_to_encode = request.args.get('url')
     encoded_url = encode_url(url_to_encode)
-    api_link = f'{request.host_url}go/{encoded_url}'
+    api_link = f'https://redirect.sohailkhan.in/go/{encoded_url}'
     return jsonify(encoded_url=api_link)    
 
 # Route to display the page with the image and a 5-second timer
